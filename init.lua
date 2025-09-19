@@ -42,7 +42,7 @@ require("lazy").setup({
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup {
-        ensure_installed = { "python", "rust" },
+        ensure_installed = { "python", "rust", "java" },
         highlight = { enable = true },
         indent = { enable = true },
       }
@@ -135,6 +135,14 @@ require("lazy").setup({
     end,
   },
 
+    -- Auto-pairing
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup {}
+    end,
+  },
     -- LSP config for Python and Rust
   {
     "neovim/nvim-lspconfig",
