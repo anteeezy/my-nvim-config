@@ -143,7 +143,8 @@ require("lazy").setup({
       require("nvim-autopairs").setup {}
     end,
   },
-    -- LSP config for Python and Rust
+
+  -- LSP config for Python and Rust (updated for vim.lsp.config)
   {
     "neovim/nvim-lspconfig",
     dependencies = { "hrsh7th/cmp-nvim-lsp" },
@@ -164,10 +165,12 @@ require("lazy").setup({
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
       capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
+      -- Setup LSPs the old-but-still-working way
       lspconfig.pyright.setup{
         on_attach = on_attach,
         capabilities = capabilities,
       }
+
       lspconfig.rust_analyzer.setup{
         on_attach = on_attach,
         capabilities = capabilities,
